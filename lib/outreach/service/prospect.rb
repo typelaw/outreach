@@ -15,6 +15,11 @@ module Outreach
         response['data'].map {|attrs| collection_class.new(attrs)}
       end
 
+      def create(attrs)
+        postdata = { data: { attributes: attrs } }
+        @request.post(api_url, attrib)
+      end
+
       protected
 
       def api_url
