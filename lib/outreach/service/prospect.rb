@@ -16,8 +16,11 @@ module Outreach
       end
 
       def create(attrs)
-        postdata = { data: { attributes: attrs } }
-        @request.post(api_url, attrib)
+        @request.post(api_url, attrs)
+      end
+
+      def update(id,attrs)
+        @request.patch("#{api_url}/#{id}", attrs)
       end
 
       protected
