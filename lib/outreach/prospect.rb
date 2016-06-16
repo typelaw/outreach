@@ -1,6 +1,6 @@
 module Outreach
   class Prospect
-    attr_accessor :first_name, :last_name, :company, :contact, :tags, :id
+    attr_accessor :first_name, :last_name, :company, :contact, :tags, :id, :raw_attrs
 
     def initialize(attrs)
       @first_name = attrs['attributes']['personal']['name']['first']
@@ -9,6 +9,7 @@ module Outreach
       @contact = to_ostruct(attrs['attributes']['contact'])
       @tags = attrs['attributes']['metadata']['tags']
       @id = attrs['id']
+      @raw_attrs = attrs
     end
 
     private
