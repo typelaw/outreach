@@ -5,6 +5,7 @@ require "outreach/authorization"
 require "outreach/client"
 require "outreach/prospect"
 require "outreach/service/prospect"
+require "outreach/service/sequence"
 
 module Outreach
   class << self
