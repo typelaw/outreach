@@ -9,14 +9,15 @@ module Outreach
         attrs={
           data: {
             relationships: {
-              prospects: {
+              prospects: [{
                 data: {
                   id: prospect_id
                 }
-              }
+              }]
             }
           }
         }
+
         @request.patch("#{api_url}/#{sequence_id}",attrs)
       end
 
