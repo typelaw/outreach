@@ -8,8 +8,16 @@ module Outreach
       Outreach::Service::Prospect.new(self)
     end
 
-    def sequence
+    def activities
+      Outreach::Service::Activity.new(self)
+    end
+
+    def sequences
       Outreach::Service::Sequence.new(self)
+    end
+
+    def mailings
+      Outreach::Service::Mailing.new(self)
     end
 
     def request

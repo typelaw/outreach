@@ -1,14 +1,17 @@
 module Outreach
   class Prospect
-    attr_accessor :first_name, :last_name, :company, :contact, :tags, :id, :raw_attrs
+    attr_accessor :id, :email, :first_name, :last_name, :company, :contact, :tags, :id, :custom, :raw_attrs, :updated_after
 
     def initialize(attrs)
+      @id = attrs['id']
       @first_name = attrs['attributes']['personal']['name']['first']
       @last_name = attrs['attributes']['personal']['name']['last']
+      @email = attrs['attributes']['contact']['email']
       @company = to_ostruct(attrs['attributes']['company'])
       @contact = to_ostruct(attrs['attributes']['contact'])
       @tags = attrs['attributes']['metadata']['tags']
       @id = attrs['id']
+      @custom = Hash[attrs['attributes']['metadata']['custom'].each_with_index.map{|v,index| ["custom#{index}",v]}]
       @raw_attrs = attrs
     end
 

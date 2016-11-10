@@ -4,8 +4,13 @@ require "outreach/request"
 require "outreach/authorization"
 require "outreach/client"
 require "outreach/prospect"
+require "outreach/activity"
+require "outreach/sequence"
+require "outreach/mailing"
 require "outreach/service/prospect"
+require "outreach/service/activity"
 require "outreach/service/sequence"
+require "outreach/service/mailing"
 
 module Outreach
   class << self
