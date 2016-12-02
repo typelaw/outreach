@@ -18,19 +18,22 @@ module Outreach
 
 
         loop do
+
           # Set page #
           attrs[:page] = page
 
           # Query outreach
+          attrs_mappings = attribute_mapping(attrs.clone)
           begin
-            response = @request.get(api_url, attribute_mapping(attrs))
+            response = @request.get(api_url, attrs_mappings)
           rescue JSON::ParserError => e
-            response = @request.get(api_url, attribute_mapping(attrs))
+            response = @request.get(api_url, attrs_mappings)
           end
 
           # If there is an error break
           if response['errors']
-            raise OutreachException.new("Exception trying to reach outreach. #{api_url}")
+            puts response['errors']
+            raise OutreachException.new("Exception trying to reach outreach. #{api_url}\n#{response['errors']}")
             break
           end
 

@@ -25,7 +25,7 @@ module Outreach
           attrs[:page] = page
 
           # Query outreach
-          response = @request.get(api_url, attribute_mapping(attrs))
+          response = @request.get(api_url, attribute_mapping(attrs.clone))
 
           # If there is an error break
           if response['errors']
