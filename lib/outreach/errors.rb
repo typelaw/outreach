@@ -3,6 +3,8 @@
 module Outreach
   module Errors
     class Unauthorized < StandardError; end
+    class OutreachException < StandardError; end
+    class InvalidOutreachArguments < StandardError; end
 
     def check_for_error(status_code, response_body)
       # raise error if status code isn't 200

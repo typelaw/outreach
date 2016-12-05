@@ -11,6 +11,7 @@ module Outreach
         begin
           response = @request.get("#{api_url}/#{id}")
         rescue JSON::ParserError => e
+          # retry
           response = @request.get("#{api_url}/#{id}")
         end
 

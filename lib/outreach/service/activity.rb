@@ -2,9 +2,6 @@ module Outreach
   module Service
     class Activity
 
-      class InvalidOutreachArguments < StandardError
-      end
-
 
       def initialize(client)
         @request = client.request

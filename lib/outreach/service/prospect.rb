@@ -2,11 +2,6 @@ module Outreach
   module Service
     class Prospect
 
-      class InvalidOutreachArguments < StandardError
-      class OutreachException < StandardError
-
-      end
-      end
       def initialize(client)
         @request = client.request
       end
